@@ -1,10 +1,9 @@
-volumes:
-  pgDemoData:
+# W8 課堂 demo 資料庫（PostgreSQL）
+# 只起一顆資料庫，app 在本機跑——跟本週作業 repo（livefit/school）同一套做法；
+# 把 app 也裝進 Docker 是 W10 部署週的主題。
+# port 5434：不跟作業的 livefit(5432)、school(5433) 打架。
 
 services:
-  # W8 課堂 demo 資料庫（PostgreSQL）
-  # 你不需要懂這個檔案——它是電器，插電就用，原理 W10 會教
-  # port 用 5434：不跟作業的 livefit(5432)、school(5433) 打架
   postgres:
     image: postgres:16.4-alpine3.20
     environment:
@@ -13,12 +12,15 @@ services:
       - POSTGRES_DB=livefit_demo
       - TZ=Asia/Taipei
       - PGTZ=Asia/Taipei
-    volumes:
-      - pgDemoData:/var/lib/postgresql/data
     ports:
       - "${DB_PORT:-5434}:5432"
+    volumes:
+      - pgData:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U student -d livefit_demo"]
       interval: 5s
       timeout: 3s
       retries: 10
+
+volumes:
+  pgData:
