@@ -2,6 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 const { dataSource } = require('../db/data-source')
+const logger = require('../utils/logger')('CreditPackage')
 
 // 招式 1：find —— 把全部組合包撈出來（SELECT 指定欄位 FROM "CREDIT_PACKAGE"）
 router.get('/', async (req, res, next) => {

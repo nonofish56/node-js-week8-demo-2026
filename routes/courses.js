@@ -2,6 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 const { dataSource } = require('../db/data-source')
+const logger = require('../utils/logger')('Courses')
 
 // 招式 2：relations —— 把外來鍵指著的資料一起撈回來（JOIN 的感覺）
 // 招式 3：巢狀 select —— 連 relation 裡要哪些欄位都能指定
