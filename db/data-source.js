@@ -1,10 +1,8 @@
 const { DataSource } = require('typeorm')
 const config = require('../config/index')
 
-// ============================================================
-// TODO（課堂）：把你寫好的 entity require 進來、加進 entities 陣列
-//（沒註冊的 entity，migration:generate 看不見）
-// ============================================================
+// TODO：把你寫好的 entity require 進來，加進下面的 entities 陣列
+// （沒註冊的 entity，migration:generate 看不見）
 
 const dataSource = new DataSource({
   type: 'postgres',

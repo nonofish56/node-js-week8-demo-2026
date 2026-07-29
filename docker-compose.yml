@@ -1,7 +1,5 @@
-# W8 課堂 demo 資料庫（PostgreSQL）
-# 只起一顆資料庫，app 在本機跑——week5 README 的「localhost 開發伺服器」模式；
-# app 也裝進 Docker 的完整版是 W10 部署週的主題。
-# port 5434：不跟作業的 livefit(5432)、school(5433) 打架。
+# 課堂用的 PostgreSQL：只起資料庫，你的 Express 在本機跑
+# port 5434：跟作業的 livefit(5432)、school(5433) 分開，可以同時開
 
 services:
   postgres:
