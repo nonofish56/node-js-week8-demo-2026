@@ -1,23 +1,24 @@
+require('dotenv').config()
 const { DataSource } = require('typeorm')
-const config = require('../config/index')
 
-// TODO：把你寫好的 entity require 進來，加進下面的 entities 陣列
-// （沒註冊的 entity，migration:generate 看不見）
+// TODO：把你寫好的 entity require 進來，然後加進下方的 entities 陣列
+//（沒註冊的 entity，migration:generate 看不到它，所以這張資料表就不會被建出來）
 
 const dataSource = new DataSource({
   type: 'postgres',
-  host: config.get('db.host'),
-  port: config.get('db.port'),
-  username: config.get('db.username'),
-  password: config.get('db.password'),
-  database: config.get('db.database'),
-  synchronize: config.get('db.synchronize'),   // ⚠️ 鐵律：.env 永遠填 false，結構一律走 Migration
-  poolSize: 10,
+  host: process.env.DB_HOST || 'localhost',
+  port: Number(process.env.DB_PORT || 5434),
+  username: process.env.DB_USERNAME || 'student',
+  password: process.env.DB_PASSWORD || 'student666',
+  database: process.env.DB_DATABASE || 'livefit_demo',
+
+  // ⚠️ 鐵律：synchronize 固定為 false，將 ORM 自動同步結構關閉，避免它動到正式資料；結構一律走 Migration
+  synchronize: false,
+
   entities: [
     // TODO: 你的 entities
   ],
   migrations: ['db/migrations/*.js'],
-  ssl: config.get('db.ssl')
 })
 
 module.exports = { dataSource }

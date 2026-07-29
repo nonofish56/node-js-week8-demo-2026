@@ -2,7 +2,6 @@ const express = require('express')
 
 const router = express.Router()
 const { dataSource } = require('../db/data-source')
-const logger = require('../utils/logger')('CreditPackage')
 
 // 方案列表
 router.get('/', async (req, res, next) => {
