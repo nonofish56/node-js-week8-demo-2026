@@ -14,13 +14,12 @@ app.get('/healthcheck', (req, res) => {
 })
 app.use('/api/credit-package', creditPackageRouter)
 
-// 404：前面的路由都沒接到
+// 404
 app.use((req, res) => {
   res.status(404).json({ status: 'failed', message: '無此路由' })
 })
 
-// 錯誤處理 middleware（W4 教過：四個參數的那位）
-// eslint-disable-next-line no-unused-vars
+// 錯誤處理
 app.use((err, req, res, next) => {
   console.error(err)
   res.status(500).json({ status: 'error', message: '伺服器錯誤' })
