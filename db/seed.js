@@ -19,9 +19,9 @@ async function main() {
   await clearAll()
 
   // TODO：種資料
-  //   1. 先種「被指著」的表：SKILL 三筆（重訓、瑜珈、飛輪）、USER 兩位教練
+  //   1. 先種「被指著」的表：SKILL 三筆（拳擊、游泳、皮拉提斯）、USER 兩位教練
   //   2. 再種 COURSE 四堂課——relation 直接塞整個物件：
-  //      courseRepo.save({ name: '...', User: 教練, Skill: 技能 })
+  //      courseRepo.save({ name: '...', user: 教練物件, skill: 技能物件 })
   //   3. CreditPackage 三筆
 
   console.log('🌱 seed 完成')
