@@ -1,8 +1,3 @@
-/**
- * Seeder —— 種一點資料，證明表真的能用。
- * 規則：可重複執行（先清空、再種入），跑兩次資料不會翻倍。
- * 執行順序：一定要先 npm run migration:run（表都還沒有，種什麼）
- */
 const { dataSource } = require('./data-source')
 
 /** 清空：被 FK 指著的表最後刪（先刪 COURSE，再 USER / SKILL）。 */

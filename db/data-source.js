@@ -2,7 +2,6 @@ require('dotenv').config()
 const { DataSource } = require('typeorm')
 
 // TODO：把你寫好的 entity require 進來，然後加進下方的 entities 陣列
-//（沒註冊的 entity，migration:generate 看不到它，所以這張資料表就不會被建出來）
 
 const dataSource = new DataSource({
   type: 'postgres',
