@@ -2,6 +2,10 @@ require('dotenv').config()
 const { DataSource } = require('typeorm')
 
 // TODO：把你寫好的 entity require 進來，然後加進下方的 entities 陣列
+const CreditPackage = require('../entities/CreditPackage')
+const Skill = require('../entities/Skill')
+const User = require('../entities/User')
+const Course = require('../entities/Course')
 
 const dataSource = new DataSource({
   type: 'postgres',
@@ -16,6 +20,10 @@ const dataSource = new DataSource({
 
   entities: [
     // TODO: 你的 entities
+    CreditPackage,
+    Skill,
+    User,
+    Course
   ],
   migrations: ['db/migrations/*.js'],
 })
